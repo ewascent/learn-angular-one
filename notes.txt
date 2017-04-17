@@ -1,0 +1,90 @@
+need an an angular.js file as a main entry point into your angular app(s)
+need to include a script tag pointing to the the path to this file in your html
+add an ng-app directive to your top level html element, the body,  or a div.
+ this is the scope for Angular code to be applied and run.
+ you only get one ng-app
+
+# Handlebars or Binding Expressions
+Here a simple binding expression in a page. Without using the Angular, this would reder the braces and the equation, not the answer.
+ <!DOCTYPE html>
+<html ng-app>
+  <head>
+    <script data-require="angular.js@*" data-semver="1.4.0" src="https://code.angularjs.org/1.4.0/angular.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <h1>Math in the Binding Expression</h1>
+    {{500 / 50}}
+  </body>
+</html>
+
+# functional composition model
+There is a functional capacity to javascript in general that should be noted.
+You can pass functions as parameters to allow for normal functional composition models
+used in other functional languages as well as javascript. We see that with doWork, which accepts a function
+and provides the boiler plate for exception handling and some simple logging.
+
+# revealing module pattern
+Along with this is a very javascript compositional model
+where private implementation details are concealed, or modularized
+the public interface is (possibly aliased) used to reveal the interface of the module
+
+# Immediately invoked function expression
+to remove all globally scoped functions and variables you can use the IIFE patter
+
+# this is the start of the IIFE
+(function() { 
+
+var print = function(msg){
+  console.log(msg);
+}
+
+#this is an example of function passing
+var doWork = function(i){
+  print("starting");
+
+  try {
+    i();
+  }
+  catch(ex){
+    print(ex.message);
+  }
+
+  print("end");
+}
+
+#this is an example of the revealing module pattern
+var createWorker = function(){
+    callCnt = 0;
+
+  var task1 = function(){
+    callCnt += 1;
+    print("task1")
+  }
+  var task2 = function(){
+    callCnt += 1;
+    print("task2")
+  }
+
+  var calls = function(){
+    print(callCnt);
+  }
+
+  return{
+    job1: task1,
+    job2: task2,
+    calls: calls
+  }
+
+}
+
+var worker = createWorker();
+doWork(worker.job1)
+doWork(worker.job2)
+doWork(worker.job1)
+doWork(worker.job2)
+doWork(worker.job1)
+doWork(worker.job2)
+doWork(worker.calls)
+}());  # this is the end of the IIFE

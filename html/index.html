@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="description" content="testing some html ideas">
+  <title>Dicking Around</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script type="text/javascript" src="../js/angular.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!--use for browser shortcut-->
+  <link rel="shortcut icon" href="../images/favicon-bar-chart-o.ico">
+  <!-- CSS-->
+  <link href="../css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+  <div ng-controller="mainController">
+     <h1>
+        <i class="material-icons" style="font-size:80px">whatshot</i>
+          I expect a data bound message here:
+        <br>
+        <div class="offset-m3">{{message}}</div>
+     </h1>
+     <div class="divider"></div>
+     <div class="section">
+       <h3>
+         <i class="material-icons" style="font-size:40px">description</i> Input something in the input box below.
+       </h3>
+       <div ng-init="firstName='your name here'">
+         <input type="text"  ng-model="firstName">
+         <div>And see
+           <span ng-bind="firstName"></span>
+         </div>
+       </div>
+     </div>
+     <div class="divider"></div>
+  </div>
+  <div ng-controller="dataController" class="container">
+    <div class="divider"></div>
+    <div class="row">
+    <div class="col s5">
+       {{fuels.station_locator_url}}:
+       <br>
+       total results {{fuels.total_results}}
+       <br>
+       total counts: {{fuels.station_counts.total}}
+       <br>
+     </div>
+      <div class="card-panel  indigo darken-1, col s2 m6 l3">
+        <table class="striped, responsive-table, highlight">
+          <thead>
+            <tr>
+              <td>Fuel Type</td>
+              <td>Stations</td>
+            </tr>
+          <thead>
+          <tbody>
+            <tr ng-repeat="(key, value) in fuels">
+              <td>{{key}}</td>
+              <td>{{value.total}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="divider"></div>
+      <div class="section">
+      {{stations}}
+      <ul class="stations">
+        <li ng-repeat="station in stations">
+          <span>{{station.station_name}}: {{station.city}}</span>
+        </li>
+      </ul>
+      <br>
+     {{dataObj.station_counts.fuels}}
+     <br>
+   </div>
+ </div>
+</body>
+</html>
