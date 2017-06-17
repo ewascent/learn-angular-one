@@ -67,30 +67,43 @@
           <table class="striped, responsive-table, highlight">
             <thead>
               <tr>
-                <td>Cities</td>
-                <td>States</td>
+                <td>City</td>
+                <td>State</td>
+                <td>Stations</td>
               </tr>
             <thead>
             <tbody>
               <tr ng-repeat="station in stations|orderBy:['state','city']">
                 <td>{{station.city}}</td>
                 <td>{{station.state}}</td>
+                <td>{{station.city.length}}</td>
               </tr>
             </tbody>
           </table>
         </div>
-
       <div class="divider"></div>
       <div class="section">
-      {{stations}}
-      <ul class="stations">
-        <li ng-repeat="station in stations">
-          <span>{{station.station_name}}: {{station.city}}</span>
-        </li>
-      </ul>
-      <br>
-     {{data}}
-     <br>
+        <div class="divider"></div>
+          <div class="card-panel  indigo darken-1, col s2 m6 l3">
+            <table class="striped, responsive-table, highlight">
+              <thead>
+                <tr>
+                  <td>City</td>
+                  <td>State</td>
+                  <td>Station</td>
+                  <td>Zip</td>
+                </tr>
+              <thead>
+              <tbody>
+                <tr ng-repeat="station in stations|orderBy:['state','city']">
+                  <td>{{station.city}}</td>
+                  <td>{{station.state}}</td>
+                  <td>{{station.station_name}}</td>
+                  <td>{{station.zip}} - {{station.plus4}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
    </div>
  </div>
 </body>

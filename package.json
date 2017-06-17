@@ -1,0 +1,27 @@
+{
+  "name": "learn-angular-one",
+  "version": "0.1.0",
+  "description": "A sample Angular app",
+  "main": "angular.js",
+  "dependencies": {
+    "angular": "1.4.0",
+    "angularjs-template":"0.0.4",
+    "gulp4": "4.0.1",
+    "jasmine-core": "2.6.4",
+    "jasmine": "2.6.0",
+    "jslint": "0.10.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ewascent/learn-angular-one"
+  },
+  "keywords": [
+    "angular",
+    "html",
+    "css"
+  ],
+  "author": "Eric Aldinger",
+  "contributors": [
+  ],
+  "license": "MIT"
+}
