@@ -6,10 +6,16 @@
   "dependencies": {
     "angular": "1.4.0",
     "angularjs-template":"0.0.4",
+    "body-parser":"1.17.2",
+    "bootstrap":"3.3.7",
+    "express":"4.15.3",
     "gulp4": "4.0.1",
+    "grunt-sass":"2.0.0",
+    "grunt":"1.0.1",
     "jasmine-core": "2.6.4",
     "jasmine": "2.6.0",
-    "jslint": "0.10.3"
+    "jslint": "0.10.3",
+    "karma":"1.7.0"
   },
   "repository": {
     "type": "git",
