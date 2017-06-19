@@ -1,7 +1,7 @@
 /*! style.css v1.0.0-alpha-8 | ISC License | https://github.com/ungoldman/style.css */
 html {
-  color: #300030;
-  background-color: #C2C20D;
+  color: #D9BBF9;
+  background-color: #AA9FB1;
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "avenir next", avenir, "segoe ui", "fira sans", roboto, noto, "droid sans", "liberation sans", "lucida grande", "helvetica neue", helvetica, "franklin gothic medium", "century gothic", cantarell, oxygen, ubuntu, sans-serif;
   font-size: calc(16px + 0.25vw);
@@ -454,7 +454,7 @@ button:-moz-focusring,
 }
 
 fieldset {
-  border: 1px solid #c0c0c0;
+  border: 1px solid #CCA7A2;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em;
 }
@@ -524,4 +524,38 @@ template {
 
 [hidden] {
   display: none;
+}
+
+.navbar-custom {
+    background-color:#b5b5b5;
+    color:#4E5283;
+    border-radius:0;
+}
+
+.navbar-custom .navbar-nav > li > a {
+    color:#4E5283;
+}
+
+.navbar-custom .navbar-nav > .active > a {
+    color: #4E5283;
+    background-color:transparent;
+}
+
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus,
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .active > a:focus,
+.navbar-custom .navbar-nav > .open >a {
+    text-decoration: none;
+    background-color: #4E5283;
+}
+
+.navbar-custom .navbar-brand {
+    color:#4E5283;
+}
+.navbar-custom .navbar-toggle {
+    background-color:#4E5283;
+}
+.navbar-custom .icon-bar {
+    background-color:#7871AA;
 }
