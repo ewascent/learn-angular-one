@@ -11,43 +11,19 @@
   <script type="text/javascript" src="./js/modules/myApp.js"></script>
   <script type="text/javascript" src="./js/modules/stationDetails.js"></script>
   <script type="text/javascript" src="./js/modules/stationCounts.js"></script>
-  <script type="text/javascript" src="./js/controllers/main.js"></script>
-  <script type="text/javascript" src="./js/controllers/data.js"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script type="text/javascript" src="./js/controllers/thinController.js"></script>
   <!--use for browser shortcut-->
   <link rel="shortcut icon" href="./images/favicon-bar-chart-o.ico">
   <!-- CSS-->
-  <link href="./css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
-  <link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/style.css" type="text/css" rel="stylesheet">
+  <link href="css/table.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
-  <div ng-controller="mainController">
-     <h1>
-        <i class="material-icons" style="font-size:80px">whatshot</i>
-          I expect a data bound message here:
-        <br>
-        <div class="offset-m3">{{message}}</div>
-     </h1>
-     <div class="divider"></div>
-     <div class="section">
-       <h3>
-         <i class="material-icons" style="font-size:40px">description</i> Input something in the input box below.
-       </h3>
-       <div ng-init="firstName='your name here'">
-         <input type="text"  ng-model="firstName">
-         <div>And see
-           <span ng-bind="firstName"></span>
-         </div>
-       </div>
-     </div>
-     <div class="divider"></div>
-  </div>
-  <div ng-controller="dataController" class="container">
-    <div class="divider"></div>
-      <div class="card-panel  indigo darken-1, col s2 m6 l3">
-        <table class="striped, responsive-table, highlight">
+  <div ng-controller="thinController" class="container">
+    <div class="div"></div>
+      <div>
+        <table>
           <thead>
             <tr>
               <td>Fuel Type</td>

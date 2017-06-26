@@ -7,6 +7,7 @@ var path = require('path');
 var rootpath = path.normalize(__dirname + '/../');
 var webport = 8090;
 var app = express();
+/*the location of your index.html*/
 app.use(express.static(rootpath));
 app.listen(webport);
 console.log('Starting...\n Listening on port: '

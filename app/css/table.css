@@ -1,0 +1,53 @@
+/*! style.css v1.0.0-alpha-8 | F You License |  */
+
+/*Disembodied table headers are sad*/
+td,
+th {
+  padding: 0;
+}
+
+table {
+  border-right: thick solid brown;
+  border-collapse: collapse;
+  border-spacing: 1;
+  border-color:transparent; /*inherit, transparent, color*/
+  border-radius: 20;
+  border-top-left-radius: 200;
+  padding: 5px 5px 1px;
+  display: inline; /*block or inline*/
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+  background-color: #F39C12;
+  color: #A93226;
+}
+
+table thead,
+table th,
+table td {
+  padding: 6px 13px;
+}
+
+table tr {
+  background-color: #F39C12;
+  padding: 5px 5px 1px;
+}
+
+table tr:nth-child(2n) {
+  background-color: brown;
+  box-shadow: 0 1px 0 #d6d6d6;
+  color: red;
+  font-size: 0.75em;
+  margin: 0 1px;
+  padding: 5px 5px 1px;
+}
+
+table tr:hover {  background-color: #E59866;}
+
+table thead {
+  font-weight: bold;
+  border-style: solid;
+  border-bottom: thick solid brown;
+  background-color: #D98880;
+  color: #F8C471  ;
+}

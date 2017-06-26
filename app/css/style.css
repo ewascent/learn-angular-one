@@ -282,39 +282,6 @@ kbd {
   padding: 5px 5px 1px;
 }
 
-td,
-th {
-  padding: 0;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  display: block;
-  width: 100%;
-  overflow: auto;
-  word-break: normal;
-  word-break: keep-all;
-}
-
-table th,
-table td {
-  padding: 6px 13px;
-  border: 1px solid #ddd;
-}
-
-table th {
-  font-weight: bold;
-}
-
-table tr {
-  background-color: #fff;
-  border-top: 1px solid #ccc;
-}
-
-table tr:nth-child(2n) {
-  background-color: #f8f8f8;
-}
 
 hr {
   box-sizing: content-box;
