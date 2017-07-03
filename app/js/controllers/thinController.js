@@ -1,16 +1,25 @@
 /*jslint white:true*/
-/*global angular, XMLHttpRequest,console, XDomainRequest*/
-angular.module('myApp').controller('thinController', ['$scope', function( $scope, xreq, FuelFactory ) {
+/*global angular,console*/
+angular
+  .module('myApp')
+  .controller('ThinController', function ThinController($scope,getXhrFactory) {
     'use strict';
+    var api = 'https://api.data.gov/nrel/alt-fuel-stations/v1.json?&api_key=',
+        api_key = 'pCvPNRrbY4MMSEOwjbHEvrncKyizOgikI90rLoPV',
+        api_limit = '&limit=50',
+        api_state = '&state=AL,TX,CA',
+        url =  api.concat(api_key,api_state, api_limit),
+        formatter = null,
+        xhr = getXhrFactory.callXreq("GET", url, false, 'application/json');
 
-    $scope.http.push(new FuelFactory(xreq));
+        $scope.url = url;
+        $scope.xhr = xhr;
 
-    //formatter = xhr.response;
-    $scope.fuels = $scope.http.xhr.response.station_counts.fuels;
-    $scope.total = $scope.http.xhr.response.station_counts.total;
-    $scope.stations = $scope.http.xhr.response.fuel_stations;
+        formatter = angular.fromJson(xhr.response);
+        $scope.fuels = formatter.station_counts.fuels;
+        $scope.total = formatter.station_counts.total;
+        $scope.stations = formatter.fuel_stations;
 
-    console.log("xhr.status: " + $scope.http.xhr.status);
-    console.log("xhr.statusText: "+ $scope.http.xhr.statusText);
-
-}]);
+         console.log("xhr.status: " + xhr.status);
+         console.log("xhr.statusText: "+ xhr.statusText);
+});

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,9 +9,8 @@
   <title>learn-angular-one</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   <script type="text/javascript" src="./js/modules/myApp.js"></script>
-  <script type="text/javascript" src="./js/modules/stationDetails.js"></script>
-  <script type="text/javascript" src="./js/modules/stationCounts.js"></script>
-  <script type="text/javascript" src="./js/controllers/thinController.js"></script>
+  <script type="text/javascript" src="./js/services/XreqService.js"></script>
+  <script type="text/javascript" src="./js/controllers/ThinController.js"></script>
   <!--use for browser shortcut-->
   <link rel="shortcut icon" href="./images/favicon-bar-chart-o.ico">
   <!-- CSS-->
@@ -19,9 +18,11 @@
   <link href="css/table.css" type="text/css" rel="stylesheet">
 </head>
 
-<body>
-  <div ng-controller="thinController" class="container">
+<body ng-app="myApp">
+  <div ng-controller="ThinController" class="container">
     <div class="div"></div>
+    contacting {{url}}<br>
+    status: {{xhr.statusText}}
       <div>
         <table>
           <thead>
@@ -44,7 +45,7 @@
       </div>
       <div class="divider"></div>
         <div class="card-panel  indigo darken-1, col s2 m6 l3">
-          <table class="striped, responsive-table, highlight">
+          <table>
             <thead>
               <tr>
                 <td>City</td>
@@ -65,7 +66,7 @@
       <div class="section">
         <div class="divider"></div>
           <div class="card-panel  indigo darken-1, col s2 m6 l3">
-            <table class="striped, responsive-table, highlight">
+            <table>
               <thead>
                 <tr>
                   <td>City</td>
