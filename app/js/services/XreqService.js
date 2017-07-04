@@ -1,9 +1,7 @@
 /*jslint white:true*/
 /*global angular, XMLHttpRequest,this, console, XDomainRequest*/
-
 angular
   .module('myApp')
-    //.service('getXhrFactory', function(){
     .factory('getXhrFactory', function (){
         'use strict';
         //object to attach functions to

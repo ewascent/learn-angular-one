@@ -2,8 +2,8 @@
 /*global angular,console*/
 angular
   .module('myApp')
-  .controller('ThinController', function ThinController($scope, getXhrFactory) {
-    'use strict';
+    .controller('ThinController', function ThinController($scope, getXhrFactory) {
+      'use strict';
 
     var api = 'https://api.data.gov/nrel/alt-fuel-stations/v1.json?&api_key=',
         api_key = 'pCvPNRrbY4MMSEOwjbHEvrncKyizOgikI90rLoPV',

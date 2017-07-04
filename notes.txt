@@ -1,3 +1,5 @@
+npm install <PACKAGE> -save
+
 need an an angular.js file as a main entry point into your angular app(s)
 need to include a script tag pointing to the the path to this file in your html
 add an ng-app directive to your top level html element, the body,  or a div.
@@ -34,7 +36,7 @@ the public interface is (possibly aliased) used to reveal the interface of the m
 to remove all globally scoped functions and variables you can use the IIFE patter
 
 # this is the start of the IIFE
-(function() { 
+(function() {
 
 var print = function(msg){
   console.log(msg);

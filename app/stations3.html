@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="description" content="testing some html ideas">
+  <title>learn-angular-one</title>
+  <script src="./node_modules/angular/angular.min.js"></script>
+  <script src="./node_modules/angular-route/angular-route.min.js"></script>
+  <script src="./node_modules/ng-sortable/dist/ng-sortable.min.js"></script>
+  <script type="text/javascript" src="./js/modules/stationCounts/app.js"></script>
+  <script type="text/javascript" src="./js/modules/stationCounts/stationCountsService.js"></script>
+  <script type="text/javascript" src="./js/modules/stationCounts/StationCountsController.js"></script>
+  <!--use for browser shortcut-->
+  <link rel="shortcut icon" href="./images/favicon-bar-chart-o.ico">
+  <!-- CSS-->
+  <link href="css/style.css" type="text/css" rel="stylesheet">
+  <link href="css/table.css" type="text/css" rel="stylesheet">
+  <link href="css/list.css" type="text/css" rel="stylesheet">
+  <link href="./node_modules/ng-sortable/dist/ng-sortable.css" type="text/css" rel="stylesheet">
+  <link href="./node_modules/ng-sortable/dist/ng-sortable.style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body ng-app="stationCounts">
+  <div ng-controller="StationCountsController" class="container">
+
+    <div>
+       <h3>Fuel Type | Count  | Stations</h3>
+       <ul class="sortable-container" as-sortable ng-model="fuels">
+          <li data-ng-repeat="(key, value) in fuels" as-sortable-item>
+             <div as-sortable-item-handle>
+                {{key}} |  {{value.total}}
+             </div>
+         </li>
+         <li as-sortable-item>
+           <div>
+               Total |  {{total}}
+           </div>
+         </li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+  <div>
+    <table class="container-fluid" as-sortable="sortableOptions">
+      <thead>
+        <tr>
+          <td>Fuel Type</td>
+          <td>Count</td>
+        </tr>
+      <thead>
+      <tbody>
+        <tr ng-repeat="(key, value) in fuels">
+          <td>{{key}}</td>
+          <td>{{value.total}}</td>
+        </tr>
+        <tr>
+          <td>Total</td>
+          <td>{{total}}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+          <div class="container, col s2 m6 l3">
+          <table>
+            <thead>
+              <tr>
+                <td>City</td>
+                <td>State</td>
+                <td>Stations</td>
+              </tr>
+            <thead>
+            <tbody>
+              <tr ng-repeat="station in stations|orderBy:['state','city']">
+                <td>{{station.city}}</td>
+                <td>{{station.state}}</td>
+                <td>{{station.city.length}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      <div class="divider"></div>
+      <div class="section">
+        <div class="divider"></div>
+          <div class="card-panel  indigo darken-1, col s2 m6 l3">
+            <table>
+              <thead>
+                <tr>
+                  <td>City</td>
+                  <td>State</td>
+                  <td>Station</td>
+                  <td>Zip</td>
+                </tr>
+              <thead>
+              <tbody>
+                <tr ng-repeat="station in stations|orderBy:['state','city']">
+                  <td>{{station.city}}</td>
+                  <td>{{station.state}}</td>
+                  <td>{{station.station_name}}</td>
+                  <td>{{station.zip}} - {{station.plus4}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+   </div>
+ </div>
+</body>
+</html>

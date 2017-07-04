@@ -1,0 +1,44 @@
+@import "nib"
+
+.as-sortable-placeholder {
+    width: 124px;
+    margin: 2px;
+    border: 1px solid #ff0000;
+    border-radius: 5px;
+  }
+
+  .sortable-container {
+      display: inline-block;
+      border-radius: 5px;
+      border: 1px solid #AA0000;
+      background-color: #AA2222;
+      margin: 2px;
+  }
+
+  .column {
+    border: 1px solid #000000;
+    border-radius: 5px;
+  }
+
+.grid
+  width 100%
+  height 100vh
+  display flex
+
+.column
+  width 50%
+  height 100%
+  display row
+
+.chosen {
+    color: #fff;
+    background-color: #c00;
+  }
+
+li
+ width 50%
+ height 100%
+ display row
+ background-color:lightgray;
+ border:5px
+ dashed gray;
