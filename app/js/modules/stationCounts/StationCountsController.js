@@ -13,11 +13,42 @@ angular
           xreq = stationCountsFactory.xreq("GET", url, false, 'application/json'),
           xhr = stationCountsFactory.callXreq(xreq);
 
+          $scope.sortableOptions = {
+             containment: '#sortable-container'
+           };
           formatter = angular.fromJson(xhr.response);
 
+//combine these two fuckers
+          function json2array(json){
+              var result = [];
+              var keys = Object.keys(json);
+              keys.forEach(function(key){
+                  result.push(json[key]);
+              });
+              return result;
+          }
+
+
+                  var hasOwn = Object.prototype.hasOwnProperty;
+                  Object.keys = Object_keys;
+                  function Object_keys(obj) {
+                      var keys = [], name;
+                      for (name in obj) {
+                          if (hasOwn.call(obj, name)) {
+                              keys.push(name);
+                          }
+                      }
+                      return keys;
+                  };
+
           $scope.url = url;
-          $scope.status = xreq.statusText;
-          $scope.fuels = formatter.station_counts.fuels;
+          $scope.fuels = Object_keys(formatter.station_counts.fuels);//formatter.station_counts.fuels;
           $scope.total = formatter.station_counts.total;
           $scope.stations = formatter.fuel_stations;
+
+
+console.log($scope.fuels);
+console.log(formatter.station_counts.fuels);
+
+
 });
