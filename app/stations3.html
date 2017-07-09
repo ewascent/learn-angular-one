@@ -25,18 +25,22 @@
 
 <body ng-app="stationCounts">
   <div ng-controller="StationCountsController" class="container">
-
     <div>
-       <h3> Fuel Type | Count  </h3>
+       <h3> Fuel Type Counts </h3>
        <ul class="sortable-container" as-sortable ng-model="fuels">
-          <li data-ng-repeat="key in fuels" as-sortable-item >
+         <li as-sortable-item>
+           <div>
+               <u><b>Fuel Type</b><b>Count</b></u>
+           </div>
+         </li>
+          <li data-ng-repeat="fuel in fuels" as-sortable-item >
              <div as-sortable-item-handle>
-                {{key}} |  {{value.total}}
+                <b>{{fuel[0]}} </b>: {{fuel[1]}}
              </div>
          </li>
          <li as-sortable-item>
            <div>
-               Total |  {{total}}
+               <b>Total: </b>:  {{total}}
            </div>
          </li>
       </ul>

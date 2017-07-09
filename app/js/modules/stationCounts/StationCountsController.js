@@ -16,33 +16,39 @@ angular
           $scope.sortableOptions = {
              containment: '#sortable-container'
            };
+
           formatter = angular.fromJson(xhr.response);
 
-//combine these two fuckers
-          function json2array(json){
-              var result = [];
-              var keys = Object.keys(json);
-              keys.forEach(function(key){
-                  result.push(json[key]);
-              });
-              return result;
-          }
+          function object_keys(obj) {
+              var hasOwn = Object.prototype.hasOwnProperty,
+                  keys = [], name;
 
+              for (name in obj) {
+                  if (hasOwn.call(obj, name)) {
+                      keys.push(name);
+                     }
+              }
+              return keys;
+            }
 
-                  var hasOwn = Object.prototype.hasOwnProperty;
-                  Object.keys = Object_keys;
-                  function Object_keys(obj) {
-                      var keys = [], name;
-                      for (name in obj) {
-                          if (hasOwn.call(obj, name)) {
-                              keys.push(name);
-                          }
-                      }
-                      return keys;
-                  };
+            function object_values(json){
+                var result = [],
+                    keys = Object.keys(json);
+                keys.forEach(function(key){
+                    result.push(json[key]);
+                });
+                return result;
+            }
+
+            //zip keys and values into single array
+            //in template reference 0 and 1 indexed elements 
+            $scope.fuels = object_keys(formatter.station_counts.fuels).map(function (k, v) {
+              return [ k, object_values(formatter.station_counts.fuels)[v].total ];
+            });
+$scope.rando = object_values(formatter.station_counts.fuels)[2].total;
 
           $scope.url = url;
-          $scope.fuels = Object_keys(formatter.station_counts.fuels);//formatter.station_counts.fuels;
+          //$scope.fuels = object_keys(formatter.station_counts.fuels);//formatter.station_counts.fuels;
           $scope.total = formatter.station_counts.total;
           $scope.stations = formatter.fuel_stations;
 
